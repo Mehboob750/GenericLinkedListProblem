@@ -79,6 +79,26 @@ public class LinkedList<T> {
            insert(element);
        }
     }
+
+    public int index(T data){
+        int indexValue = 1;
+       if(!isEmpty()) {
+           Node firstPosition = head;
+           if (head.data == data) {
+               return indexValue;
+           } else {
+               while (firstPosition != null) {
+                   if (firstPosition.data == data)
+                       return indexValue;
+                   indexValue++;
+                   firstPosition = firstPosition.next;
+               }
+           }
+       }
+       else
+           System.out.println("List should not be empty");
+       return 0;
+   }
     public static void printList(LinkedList linkedList) {
         Node currentData = linkedList.head;
         while (currentData != null) {

@@ -79,4 +79,20 @@ public class LinkedListTest {
         linkedList.printList(linkedList);
         Assert.assertEquals(4,linkedList.listSize());
     }
+
+    @Test
+    public void givenValue_WhenSearchForIndex_ShouldReturnTheindexNumber(){
+        LinkedList linkedList = new LinkedList();
+        linkedList.append(1,2,3,"Hii");
+        int result=linkedList.index(2);
+        Assert.assertEquals(2,result);
+    }
+
+    @Test
+    public void givenValue_WhenSearchForIndexInEmptyList_ShouldReturnZero(){
+        LinkedList linkedList = new LinkedList();
+        int result=linkedList.index(2);
+        Assert.assertEquals(0,result);
+    }
+    
 }
