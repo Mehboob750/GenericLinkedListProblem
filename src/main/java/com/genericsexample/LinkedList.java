@@ -74,6 +74,11 @@ public class LinkedList<T> {
         return false;
     }
 
+    public void append(T... data){
+       for (T element:data){
+           insert(element);
+       }
+    }
     public static void printList(LinkedList linkedList) {
         Node currentData = linkedList.head;
         while (currentData != null) {

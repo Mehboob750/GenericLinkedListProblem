@@ -62,4 +62,21 @@ public class LinkedListTest {
         boolean result = linkedList.search(2);
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void givenValue_WhenAppend_ShouldAddToTheList(){
+        LinkedList linkedList = new LinkedList();
+        linkedList.append(1);
+        linkedList.append(2);
+        linkedList.printList(linkedList);
+        Assert.assertEquals(2,linkedList.listSize());
+    }
+
+    @Test
+    public void givenMultipleValues_WhenAppend_ShouldAddToTheList(){
+        LinkedList linkedList = new LinkedList();
+        linkedList.append(1,2,3,"Hii");
+        linkedList.printList(linkedList);
+        Assert.assertEquals(4,linkedList.listSize());
+    }
 }
