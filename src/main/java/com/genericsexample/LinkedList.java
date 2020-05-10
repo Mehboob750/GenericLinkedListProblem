@@ -99,6 +99,32 @@ public class LinkedList<T> {
            System.out.println("List should not be empty");
        return 0;
    }
+
+    public int insertAtIndex(int position ,T data){
+        int index=1;
+        Node firstNode= head;
+        Node newNode=new Node(data);
+        if(position-1==listSize()){
+            append(data);
+            return position;
+        }else if(position == 1){
+            head=newNode;
+            head.next=firstNode;
+            return position;
+        } else{
+            while(firstNode!=null){
+                if(position-1==index){
+                    newNode.next=firstNode.next;
+                    firstNode.next=newNode;
+                    return position;
+                }
+                firstNode=firstNode.next;
+                index++;
+            }
+        }
+        return  0;
+    }
+
     public static void printList(LinkedList linkedList) {
         Node currentData = linkedList.head;
         while (currentData != null) {

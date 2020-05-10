@@ -33,7 +33,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void givenValue_WhenSearched_IfPresent_ShouldBeDeleted_AndReturnSizeOfTheList() {
+    public void givenValue_WhenRemove_ItShouldBeRemoved_AndReturnTheSizeOfTheList() {
         LinkedList linkedList = new LinkedList();
         linkedList.insert(1);
         linkedList.insert("Mehboob");
@@ -94,5 +94,14 @@ public class LinkedListTest {
         int result=linkedList.index(2);
         Assert.assertEquals(0,result);
     }
-    
+
+    @Test
+    public void givenValueWithLocation_ShouldinsertdAtLocationAndReturnThePosition(){
+        LinkedList linkedList = new LinkedList();
+        linkedList.append(1,2,3);
+        int result=linkedList.insertAtIndex(4,4);
+        linkedList.printList(linkedList);
+       Assert.assertEquals(4,result);
+    }
+
 }
