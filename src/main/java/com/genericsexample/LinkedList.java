@@ -45,5 +45,26 @@ public class LinkedList<T> {
         }
         return head;
     }
+    public Node remove(T data)  {
+        Node firstPosition = head;
+        Node secondPosition = firstPosition.next;
+        if (firstPosition.data == data) {
+            head = secondPosition;
+        } else {
+            while (secondPosition.data != data) {
+                secondPosition = secondPosition.next;
+                firstPosition = firstPosition.next;
+            }
+            firstPosition.next = secondPosition.next;
+        }
+        return head;
+    }
 
+    public static void printList(LinkedList linkedList) {
+        Node currentData = linkedList.head;
+        while (currentData != null) {
+            System.out.print(currentData.data + " ");
+            currentData = currentData.next;
+        }
+    }
 }

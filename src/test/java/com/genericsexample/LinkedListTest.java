@@ -31,4 +31,15 @@ public class LinkedListTest {
         linkedList.insert(" ");
         Assert.assertEquals(0, linkedList.listSize());
     }
+
+    @Test
+    public void givenValue_WhenSearched_IfPresent_ShouldBeDeleted_AndReturnSizeOfTheList() {
+        LinkedList linkedList = new LinkedList();
+        linkedList.insert(1);
+        linkedList.insert("Mehboob");
+        linkedList.insert("Shaikh");
+        linkedList.remove(1);
+        linkedList.printList(linkedList);
+        Assert.assertEquals(2, linkedList.listSize());
+    }
 }
