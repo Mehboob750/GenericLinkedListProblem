@@ -60,6 +60,20 @@ public class LinkedList<T> {
         return head;
     }
 
+    public boolean search(T data)  {
+        Node firstPosition = head;
+        if (head.data == data) {
+            return true;
+        } else {
+            while (firstPosition!= null) {
+                if (firstPosition.data==data)
+                    return true;
+                firstPosition = firstPosition.next;
+            }
+        }
+        return false;
+    }
+
     public static void printList(LinkedList linkedList) {
         Node currentData = linkedList.head;
         while (currentData != null) {

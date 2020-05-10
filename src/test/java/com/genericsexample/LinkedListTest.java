@@ -42,4 +42,24 @@ public class LinkedListTest {
         linkedList.printList(linkedList);
         Assert.assertEquals(2, linkedList.listSize());
     }
+
+    @Test
+    public void givenValue_WhenSearched_IfPresent_ShouldReturnTrue() {
+        LinkedList linkedList = new LinkedList();
+        linkedList.insert(1);
+        linkedList.insert("Mehboob");
+        linkedList.insert("Shaikh");
+        boolean result = linkedList.search(1);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenValue_WhenSearched_IfNotPresent_ShouldReturnFalse() {
+        LinkedList linkedList = new LinkedList();
+        linkedList.insert(1);
+        linkedList.insert("Mehboob");
+        linkedList.insert("Shaikh");
+        boolean result = linkedList.search(2);
+        Assert.assertFalse(result);
+    }
 }
