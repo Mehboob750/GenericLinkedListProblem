@@ -27,5 +27,23 @@ public class LinkedList<T> {
         }
         return length;
     }
+    public Node insert(T data) {
+        if (data != null && data !=" ") {
+            Node newNode = new Node(data);
+            newNode.next = null;
+            if (head == null) {
+                head = newNode;
+            } else {
+                Node lastPosition = head;
+                while (lastPosition.next != null) {
+                    lastPosition = lastPosition.next;
+                }
+                lastPosition.next = newNode;
+            }
+        } else {
+            System.out.println("Please Enter Valid Data");
+        }
+        return head;
+    }
 
 }
