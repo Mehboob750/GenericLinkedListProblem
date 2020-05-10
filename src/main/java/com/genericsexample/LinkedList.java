@@ -125,6 +125,16 @@ public class LinkedList<T> {
         return  0;
     }
 
+    public T pop(){
+       Node lastNode=head;
+       while(lastNode.next!=null){
+           lastNode=lastNode.next;
+       }
+       T data= (T) lastNode.data;
+       remove(data);
+       return  data;
+    }
+
     public static void printList(LinkedList linkedList) {
         Node currentData = linkedList.head;
         while (currentData != null) {

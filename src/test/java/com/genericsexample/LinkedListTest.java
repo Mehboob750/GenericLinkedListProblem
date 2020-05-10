@@ -104,4 +104,11 @@ public class LinkedListTest {
        Assert.assertEquals(4,result);
     }
 
+    @Test
+    public void whenPop_ShouldRemoveAndReturnTheLastElement(){
+        LinkedList linkedList = new LinkedList();
+        linkedList.append(1,2,3,"Hello");
+        Object result= linkedList.pop();
+        Assert.assertEquals("Hello",result);
+    }
 }
