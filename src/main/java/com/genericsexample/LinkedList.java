@@ -45,7 +45,7 @@ public class LinkedList<T> {
         }
         return head;
     }
-    public Node remove(T data)  {
+    public Node remove(Object data)  {
         Node firstPosition = head;
         Node secondPosition = firstPosition.next;
         if (firstPosition.data == data) {
@@ -125,14 +125,34 @@ public class LinkedList<T> {
         return  0;
     }
 
-    public T pop(){
+    public Object pop(){
        Node lastNode=head;
        while(lastNode.next!=null){
            lastNode=lastNode.next;
        }
-       T data= (T) lastNode.data;
+       Object data= lastNode.data;
        remove(data);
        return  data;
+    }
+
+    public Object popAtPosition(int position){
+       if(position<=listSize()) {
+           int index = 1;
+           Node firstPosition = head;
+           if (position == index) {
+               remove(head.data);
+           } else {
+               while (position != index) {
+                   firstPosition = firstPosition.next;
+                   index++;
+               }
+               remove(firstPosition.data);
+           }
+           Object data = firstPosition.data;
+           return data;
+       }else
+           System.out.println("Position Should not be greater than list size");
+       return 0;
     }
 
     public static void printList(LinkedList linkedList) {

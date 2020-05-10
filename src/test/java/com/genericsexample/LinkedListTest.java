@@ -10,6 +10,7 @@ public class LinkedListTest {
         LinkedList linkedList = new LinkedList();
         Assert.assertTrue(linkedList.isEmpty());
     }
+
     @Test
     public void givenValue_WhenInserted_ShouldReturnSizeOfTheList() {
         LinkedList linkedList = new LinkedList();
@@ -111,4 +112,21 @@ public class LinkedListTest {
         Object result= linkedList.pop();
         Assert.assertEquals("Hello",result);
     }
+
+    @Test
+    public void givenPosition_ShouldRemoveAndReturnTheElementAtThatPosition(){
+        LinkedList linkedList = new LinkedList();
+        linkedList.append(1,2,3,"Hello");
+        Object result= linkedList.popAtPosition(4);
+        Assert.assertEquals("Hello",result);
+    }
+
+    @Test
+    public void givenPositionLargeThanListSize_ShouldReturnZero(){
+        LinkedList linkedList = new LinkedList();
+        linkedList.append(1,2,3,"Hello");
+        Object result= linkedList.popAtPosition(5);
+        Assert.assertEquals(0,result);
+    }
+
 }
