@@ -45,7 +45,7 @@ public class LinkedList<T> {
         }
         return head;
     }
-    public Node remove(Object data)  {
+    public Node remove(Object data) {
         Node firstPosition = head;
         Node secondPosition = firstPosition.next;
         if (firstPosition.data == data) {
@@ -60,7 +60,7 @@ public class LinkedList<T> {
         return head;
     }
 
-    public boolean search(T data)  {
+    public boolean search(T data) {
         Node firstPosition = head;
         if (head.data == data) {
             return true;
@@ -74,13 +74,13 @@ public class LinkedList<T> {
         return false;
     }
 
-    public void append(T... data){
+    public void append(T... data) {
        for (T element:data){
            insert(element);
        }
     }
 
-    public int index(T data){
+    public int index(T data) {
         int indexValue = 1;
        if(!isEmpty()) {
            Node firstPosition = head;
@@ -100,7 +100,7 @@ public class LinkedList<T> {
        return 0;
    }
 
-    public int insertAtIndex(int position ,T data){
+    public int insertAtIndex(int position ,T data) {
         int index=1;
         Node firstNode= head;
         Node newNode=new Node(data);
@@ -125,7 +125,7 @@ public class LinkedList<T> {
         return  0;
     }
 
-    public Object pop(){
+    public Object pop() {
        Node lastNode=head;
        while(lastNode.next!=null){
            lastNode=lastNode.next;
@@ -135,12 +135,13 @@ public class LinkedList<T> {
        return  data;
     }
 
-    public Object popAtPosition(int position){
+    public Object popAtPosition(int position) {
        if(position<=listSize()) {
            int index = 1;
            Node firstPosition = head;
            if (position == index) {
                remove(head.data);
+               return head.data;
            } else {
                while (position != index) {
                    firstPosition = firstPosition.next;
@@ -153,6 +154,27 @@ public class LinkedList<T> {
        }else
            System.out.println("Position Should not be greater than list size");
        return 0;
+    }
+
+    public Object getElement(int position) {
+        Object element = null;
+        if(position<listSize()){
+            if(position==1){
+                element=head.data;
+            }else{
+                int index=1;
+                Node elementAtIndex=head;
+                while(elementAtIndex.data!=null){
+                    if(index==position){
+                        element=(T)elementAtIndex.data;
+                        break;
+                    }
+                    index++;
+                    elementAtIndex=elementAtIndex.next;
+                }
+            }
+        }
+        return element;
     }
 
     public static void printList(LinkedList linkedList) {

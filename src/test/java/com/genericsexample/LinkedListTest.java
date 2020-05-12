@@ -3,6 +3,8 @@ package com.genericsexample;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
+
 public class LinkedListTest {
 
     @Test
@@ -129,4 +131,23 @@ public class LinkedListTest {
         Assert.assertEquals(0,result);
     }
 
+    @Test
+    public void givenData_IfFoundInFile_ShouldBeDeletedAndReturnTheMessage() throws Exception {
+        LinkedList linkedList=new LinkedList();
+        ReadFromFile readFromFile=new ReadFromFile();
+        List list = readFromFile.read();
+        linkedList=readFromFile.copyToLinkedList(list);
+        linkedList.printList(linkedList);
+        readFromFile.searchElement("Hello");
+    }
+
+    @Test
+    public void givenData_IfNotFoundInFile_ShouldBeAddedAndReturnTheMessage() throws Exception {
+        LinkedList linkedList=new LinkedList();
+        ReadFromFile readFromFile=new ReadFromFile();
+        List list = readFromFile.read();
+        linkedList=readFromFile.copyToLinkedList(list);
+        linkedList.printList(linkedList);
+        readFromFile.searchElement("1234");
+    }
 }
